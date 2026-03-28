@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Besen Oluklu | Profesyonel Ambalaj Çözümleri</title>
+    <link rel="icon" type="image/png" href="img/besen6464.png">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <div class="super-box-container background-watermark">
+    <div class="box-scene">
+      <div class="box-body">
+        <div class="box-face box-front"><div class="flap"></div></div>
+        <div class="box-face box-back"><div class="flap"></div></div>
+        <div class="box-face box-left"><div class="flap"></div></div>
+        <div class="box-face box-right"><div class="flap"></div></div>
+
+        <div class="box-face box-bottom"></div>
+      </div>
+    </div>
+  </div>
+<div id="wa-container" class="wa-container">
+    <div class="wa-message-bubble">Merhaba! 👋 <br> Teklif ister misiniz?</div>
+    <div class="wa-icon-wrapper" onclick="openWhatsApp()">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="wa-icon">
+    </div>
+</div>
+
+<audio id="wa-notification-sound">
+    <source src="https://assets.mixkit.co/active_storage/sfx/2358/2358-preview.mp3" type="audio/mpeg">
+</audio>
+<script>
+    function openWhatsApp() {
+        // Buraya kendi numaranı yazmayı unutma!
+        window.open("https://wa.me/905400694141?text=Merhaba, bilgi almak istiyorum.", "_blank");
+    }
+
+    const container = document.getElementById('wa-container');
+    const bubble = document.querySelector('.wa-message-bubble');
+    const sound = document.getElementById('wa-notification-sound');
+
+    // Her 15 saniyede bir dikkat çekme döngüsü
+    setInterval(() => {
+        // 1. Ses çıkar
+        sound.play().catch(e => console.log("Ses için kullanıcı etkileşimi gerekiyor."));
+        
+        // 2. Mesaj balonunu göster
+        bubble.classList.add('show');
+        
+        // 3. İkonu zıplat
+        container.classList.add('jump-animation');
+
+        // 5 saniye sonra animasyonları sıfırla (tekrar başlaması için)
+        setTimeout(() => {
+            bubble.classList.remove('show');
+            container.classList.remove('jump-animation');
+        }, 5000);
+
+    }, 15000); // 15000ms = 15 saniye
+</script>
+  <body>
+    <header class="main-header">
+      <div class="container flex-header">
+        <a href="index.html" class="logo-link">
+        <img src="img/besenam.png" alt="Beşen Oluklu Logo" class="main-logo">
+    </a>
+
+        <nav class="main-nav">
+          <a href="#vizyon-misyon">Vizyon & Misyon</a>
+          <a href="#urunler">Ürünler</a>
+          <a href="#iletisim">İletişim</a>
+          <a href="https://wa.me/905400694141?text=Merhaba,%20web%20sitenizden%20ulaşıyorum.%20Ambalaj%20ürünleriniz%20hakkında%20fiyat%20teklifi%20almak%20istiyorum." class="btn-quote-pulse" target="_blank">
+    Hemen Teklif Alın
+</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero-section">
+        
+        <div class="slider-bg">
+            <div class="slide slide-1"></div>
+            <div class="slide slide-2"></div>
+            <div class="slide slide-3"></div>
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-content">
+            <h1 class="hero-title">Besen Oluklu'ya Hoş Geldiniz</h1>
+            <p class="hero-subtitle">İhtiyacınıza uygun, yüksek kaliteli ve güvenilir ambalaj çözümleri üretiyoruz.</p>
+            <a href="#urunler" class="btn btn-primary">Ürünlerimizi İnceleyin</a>
+        </div>
+        
+    </section>
+
+    <section id="vizyon-misyon" class="statement-section">
+      <div class="container grid-statements">
+        <div class="statement-card">
+          <div class="icon">&#128200;</div>
+          <h2>Vizyonumuz</h2>
+          <div class="line"></div>
+          <p>
+            Ambalaj sektöründe yenilikçi teknolojiler ve sürdürülebilir modeller
+            kullanarak küresel standartlarda bir marka olmak; e-ticaret ve
+            sanayi dünyasında kalite ve güvenin adı olarak sektörün geleceğine
+            yön vermektir.
+          </p>
+        </div>
+
+        <div class="statement-card">
+          <div class="icon">&#127919;</div>
+          <h2>Misyonumuz</h2>
+          <div class="line"></div>
+          <p>
+            Müşterilerimizin ihtiyaçlarına tam uyum sağlayan, yüksek
+            mukavemetli, ekonomik ve doğa dostu oluklu mukavva çözümleri
+            üreterek; ürünlerinin son tüketiciye en güvenli ve profesyonel
+            şekilde ulaşmasını sağlamaktır.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="urunler" class="products-section">
+      <div class="container">
+        <h2 class="section-title text-center">Ürün Kataloğumuz</h2>
+        <p class="section-subtitle text-center">
+          İhtiyacınıza uygun tüm oluklu mukavva ve ambalaj çeşitleri.
+        </p>
+
+        <div class="products-grid">
+
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="img/box.jpg" alt="A Box Koli" class="product-img">
+                        <div class="img-placeholder">Görsel Ekle</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="card-title-row">
+                            <h3>A Box Koli</h3>
+                            <div class="mini-abox"></div>
+                        </div>
+                        <p>Standart taşıma ve depolama ihtiyaçlarınız için en ideal, yüksek mukavemetli klasik koli çözümüdür. Kolay bantlanır ve üst üste istiflemeye uygundur.</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="img/kalıpbox.jpg" alt="Kalıplı Kesim Kutu" class="product-img">
+                        <div class="img-placeholder">Görsel Ekle</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="card-title-row">
+                            <h3>Kalıplı Kesim</h3>
+                            <div class="mini-diecut"><div class="lid"></div></div>
+                        </div>
+                        <p>E-ticaret gönderileri, pizza, kargo ve özel sunumlar için bant gerektirmeden kendi kendine kilitlenebilen, şık ve pratik tasarım kutular.</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="img/ofset.jpg" alt="Ofset Baskı Koli" class="product-img">
+                        <div class="img-placeholder">Görsel Ekle</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="card-title-row">
+                            <h3>Ofset Baskı</h3>
+                            <div class="mini-offset">
+                                <div class="image"></div>
+                                <div class="print-head"></div>
+                            </div>
+                        </div>
+                        <p>Markanızı ön plana çıkaran, yüksek çözünürlüklü renk kalitesiyle üretilmiş, fotoğraf kalitesinde baskılı ambalaj çözümleri.</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="img/baskı.jpg" alt="Koli Bandı" class="product-img">
+                        <div class="img-placeholder">Görsel Ekle</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="card-title-row">
+                            <h3>Koli Bandı</h3>
+                            <div class="mini-tape-wrapper">
+                                <div class="tape-roll"></div>
+                                <div class="tape-strip"></div>
+                            </div>
+                        </div>
+                        <p>Kolilerinizin güvenliğini sağlayan, kopmaya dayanıklı güçlü yapışkanlı bantlar. İsteğe göre firmanızın logosu ile baskılı üretilebilir.</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="img/film.jpg" alt="Endüstriyel Stretch Film" class="product-img">
+                        <div class="img-placeholder">Görsel Ekle</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="card-title-row">
+                            <h3 style="font-size: 1.1rem !important;">Endüstriyel Stretch Film</h3>
+                            <div class="mini-stretch-wrapper">
+                                <div class="stretch-core"></div>
+                                <div class="stretch-film">
+                                    <div class="shine"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>Paletli ürünlerinizin nakliyesi sırasında dağılmasını, ıslanmasını ve tozlanmasını engelleyen, yüksek esnekliğe sahip koruyucu film.</p>
+                    </div>
+                </div>
+
+            </div>
+                          
+    </section>  
+
+    <section id="iletisim" class="contact-section">
+      
+      <div class="container">
+        <h2 class="section-title text-center">Bize Ulaşın</h2>
+        <p class="section-subtitle text-center">
+          Sipariş, teklif ve detaylı bilgi için formu doldurabilir veya iletişim
+          bilgilerimizden bize ulaşabilirsiniz.
+        </p>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+    <h3>İletişim Bilgileri</h3>
+    <div class="line" style="margin-bottom: 25px"></div>
+    
+    <div class="contact-item">
+        <div class="icon-box"><i class="fas fa-envelope"></i></div>
+        <div class="contact-detail">
+            <strong>E-posta</strong>
+            <a href="mailto:iletisim@besenoluklu.com">iletisim@besenoluklu.com</a>
+        </div>
+    </div>
+
+    <div class="contact-item">
+        <div class="icon-box"><i class="fas fa-phone"></i></div>
+        <div class="contact-detail">
+            <strong>Telefon</strong>
+            <a href="tel:+905400694141" class="phone-link">+90 540 069 41 41</a>
+        </div>
+    </div>
+
+    <div class="contact-item">
+        <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="contact-detail">
+            <strong>Adres</strong>
+            <a href="https://maps.app.goo.gl/vGyHMwk4Wpd14teJ7" target="_blank" class="address-link">
+                Emek Mah. 41440 Sk. No:42/A Seyhan/Adana
+            </a>
+        </div>
+    </div>
+
+    <div class="contact-item">
+        <div class="icon-box"><i class="fas fa-clock"></i></div>
+        <div class="contact-detail">
+            <strong>Çalışma Saatleri</strong>
+            <span>Pazartesi - Cumartesi: 09:00 - 18:00</span>
+        </div>
+    </div>
+</div>
+
+          <div class="contact-form-container">
+    <form id="whatsappForm" class="contact-form">
+        <div class="input-group">
+            <label for="name">Adınız Soyadınız</label>
+            <input type="text" id="name" required placeholder="Adınızı giriniz" />
+        </div>
+        <div class="input-group">
+            <label for="email">E-posta Adresiniz</label>
+            <input type="email" id="email" required placeholder="ornek@mail.com" />
+        </div>
+        <div class="input-group">
+            <label for="message">Mesajınız</label>
+            <textarea id="message" rows="4" required placeholder="Size nasıl yardımcı olabiliriz?"></textarea>
+        </div>
+        <button type="button" onclick="sendToWhatsApp()" class="submit-btn">Mesaj Gönder</button>
+    </form>
+</div>
+
+<script>
+function sendToWhatsApp() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    const phone = "905400694141"; // Kendi numaranı buraya yaz
+
+    const text = `www.besenoluklu.com%0A%0AAd Soyad: ${name}%0AE-posta: ${email}%0AMesaj: ${message}`;
+    const url = `https://wa.me/${phone}?text=${text}`;
+    
+    window.open(url, '_blank');
+}
+</script>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bottom-footer">
+      <div class="container text-center">
+        <p>&copy; 2026 Besen Oluklu. Tüm hakları saklıdır.</p>
+      </div>
+    </footer>
+  </body>
+</html>
+<script>
+    let alertMsg = "(1) Yeni Mesaj!";
+    let originalTitle = document.title; // Mevcut sayfa başlığını (Beşen Oluklu) hafızaya al
+    let isAlert = false;
+
+    // Her 2 saniyede bir başlığı değiştir
+    setInterval(function() {
+        document.title = isAlert ? alertMsg : originalTitle;
+        isAlert = !isAlert;
+    }, 2000);
+
+    // Müşteri senin sekmene geri döndüğünde başlığı normale döndür (İsteğe bağlı)
+    window.onfocus = function () { 
+        document.title = originalTitle; 
+    };
+</script>
