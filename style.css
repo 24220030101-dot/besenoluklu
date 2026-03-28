@@ -1759,34 +1759,33 @@ a {
 /* --- MOBİL UYUMLULUK --- */
 /* --- MOBİL LOGO EZİLME DÜZELTMESİ (Kesin Çözüm) --- */
 @media (max-width: 768px) {
-    .main-logo {
-        height: 40px !important; /* Mobilde istediğimiz yükseklik */
-        
-        /* BU KRİTİK SATIRI EKLE */
-        width: auto !important; /* Genişliği yüksekliğe göre otomatik ayarla */
-        
-        /* İsteğe bağlı: logonun kutu içinde kalmasını sağlar */
-        object-fit: contain !important; 
-    }
-    
-    /* Yan yana duran metinlerin hizalamasını da kontrol edelim */
-    .logo-link {
-        display: flex !important;
-        align-items: center !important; /* Dikeyde jilet gibi ortalar */
-    }
+  .main-logo {
+    height: 40px !important; /* Mobilde istediğimiz yükseklik */
+
+    /* BU KRİTİK SATIRI EKLE */
+    width: auto !important; /* Genişliği yüksekliğe göre otomatik ayarla */
+
+    /* İsteğe bağlı: logonun kutu içinde kalmasını sağlar */
+    object-fit: contain !important;
+  }
+
+  /* Yan yana duran metinlerin hizalamasını da kontrol edelim */
+  .logo-link {
+    display: flex !important;
+    align-items: center !important; /* Dikeyde jilet gibi ortalar */
+  }
 }
 
-  .text-besen {
-    font-size: 1.2rem; /* Mobilde yazıyı küçült */
-    letter-spacing: 1.5px; /* Mobilde harf aralığını hafifçe daralt */
-  }
+.text-besen {
+  font-size: 1.2rem; /* Mobilde yazıyı küçült */
+  letter-spacing: 1.5px; /* Mobilde harf aralığını hafifçe daralt */
+}
 
-  .text-oluklu {
-    font-size: 0.9rem; /* Mobilde "OLUKLU" yazısını küçült */
-    letter-spacing: 1.5px;
-  }
+.text-oluklu {
+  font-size: 0.9rem; /* Mobilde "OLUKLU" yazısını küçült */
+  letter-spacing: 1.5px;
+}
 
-  .logo-text-block {
-    gap: 5px; /* Mobilde kelimeler arası boşluğu azalt */
-  }
+.logo-text-block {
+  gap: 5px; /* Mobilde kelimeler arası boşluğu azalt */
 }
