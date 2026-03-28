@@ -1712,3 +1712,67 @@ a {
     font-size: 1rem;
   }
 }
+/* --- LOGO VE YAN YANA METİN STİLLERİ (Montserrat) --- */
+
+/* Logo ve Metin Bloğunu Yan Yana Getir */
+.logo-link {
+  display: flex;
+  align-items: center; /* Logo ve metni dikeyde ortalar */
+  text-decoration: none;
+  gap: 15px; /* Logo ile yazı arasındaki boşluk */
+}
+
+/* Metinlerin yan yana gelmesini sağlayan kapsayıcı (flex-direction: row yapıldı) */
+.logo-text-block {
+  display: flex;
+  flex-direction: row; /* Yan yana dizer */
+  align-items: center; /* Metinleri dikeyde aynı hizada tutar */
+  gap: 8px; /* "BESEN" ve "OLUKLU" arasındaki boşluk */
+}
+
+/* --- ORTAK HARF STİLLERİ --- */
+.text-besen,
+.text-oluklu {
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 700 !important; /* Bold */
+  text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1; /* Satır yüksekliğini normalleştirir */
+
+  /* HARF ARASINI AÇAN KRİTİK KOMUT */
+  letter-spacing: 2px; /* Bu değeri arttırıp azaltabilirsin */
+}
+
+/* Üstteki Siyah "BESEN" Yazısı */
+.text-besen {
+  font-size: 1.6rem; /* Yazı boyutu (gerekirse ayarla) */
+  color: #111; /* Siyah */
+}
+
+/* Alttaki Kahverengi "OLUKLU" Yazısı */
+.text-oluklu {
+  font-size: 1.1rem; /* "BESEN"den daha küçük yapalım */
+  color: #a67c52; /* Logonun kahverengi tonuna uygun bir kahve */
+  margin-top: 0; /* Artık üst üste değil, boşluğu sıfırladık */
+}
+
+/* --- MOBİL UYUMLULUK --- */
+@media (max-width: 768px) {
+  .main-logo {
+    height: 45px; /* Mobilde logoyu biraz küçült */
+  }
+
+  .text-besen {
+    font-size: 1.2rem; /* Mobilde yazıyı küçült */
+    letter-spacing: 1.5px; /* Mobilde harf aralığını hafifçe daralt */
+  }
+
+  .text-oluklu {
+    font-size: 0.9rem; /* Mobilde "OLUKLU" yazısını küçült */
+    letter-spacing: 1.5px;
+  }
+
+  .logo-text-block {
+    gap: 5px; /* Mobilde kelimeler arası boşluğu azalt */
+  }
+}
