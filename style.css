@@ -1,0 +1,1791 @@
+/* --- TEMEL AYARLAR (RESET & DEĞİŞKENLER) --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #8b5a2b; /* Koyu Kraft Kahvesi (Vurgular) */
+  --accent-color: #d4a373; /* Açık Karton Rengi (Hafif Vurgular) */
+  --text-dark: #333; /* Ana Metin */
+  --text-light: #5c4d43; /* Yardımcı Metin */
+  --bg-light: #4a3b32; /* Genel Arka Plan */
+  --white: #ffffff;
+  --font-main: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  /* Çok hafif, gözü yormayan noktalı desen */
+  background-image: radial-gradient(#d1d1d1 1px, transparent 10px);
+  background-size: 40px 40px; /* Noktaların aralığı */
+  background-color: #fcfcfc; /* Ana zemin rengi */
+
+  color: var(--text-dark);
+  font-family: var(--font-main);
+  line-height: 1.8;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+h1,
+h2,
+h3 {
+  color: #4a3b32;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* --- HEADER & LOGO --- */
+.main-header {
+  background-color: #fefefe;
+  padding: 15px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.flex-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* --- BÜYÜTÜLMÜŞ DAİRESEL LOGO STİLLERİ --- */
+
+.main-logo {
+  width: 90px; /* Logonun boyutunu buradan ayarlayabilirsin (daha büyük istersen 120px yap) */
+  height: 90px; /* Genişlikle YÜKSEKLİK aynı olmalı ki tam yuvarlak olsun */
+  border-radius: 50%; /* Logoyu tam daire (yuvarlak) yapar */
+  object-fit: cover; /* Logonun ezilmeden dairenin içini kusursuz doldurmasını sağlar */
+
+  /* İsteğe bağlı şık detaylar: */
+  border: 3px solid #d4a373; /* Markaya uygun kraft/kahve tonunda dış çerçeve */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Logoyu havada duruyormuş gibi öne çıkaran gölge */
+  background-color: #ffffff; /* Eğer logon şeffaf (PNG) ise arkasına temiz beyaz bir zemin atar */
+
+  transition: transform 0.3s ease; /* Fareyle üzerine gelince yumuşak hareket etmesi için */
+}
+
+/* Fareyle Logonun Üzerine Gelince Çalışacak Efekt */
+.main-logo:hover {
+  transform: scale(
+    1.08
+  ); /* Hafifçe büyüyerek tıklanabilir olduğunu belli eder */
+}
+
+/* Eğer logo büyüdüğü için üst menü (header) dar geliyorsa, menü yüksekliğini artırmak için: */
+.site-header {
+  padding: 5px 0; /* Menünün altından ve üstünden boşluk bırakarak logoya yer açar */
+  display: flex;
+  align-items: center; /* Logoyu ve diğer menü linklerini dikeyde tam ortalar */
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 60px; /* Logo yüksekliğini buradan ayarla */
+  width: auto;
+  max-width: 200px; /* Çok geniş logoları kısıtla */
+}
+
+/* Eğer logo resmi yoksa ve metin kullanıyorsan */
+.logo-container span {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--primary-color);
+}
+
+.main-nav a {
+  color: var(--text-dark);
+  margin-left: 30px;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.main-nav a:hover {
+  color: var(--accent-color);
+}
+
+/* --- KAHRAMAN BÖLÜMÜ (HERO) --- */
+.hero-section {
+  background-color: #faedcd; /* Çok Açık Kraft */
+  padding: 120px 0;
+  border-bottom: 5px solid rgb(255, 255, 255);
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+}
+.hero-section p {
+  font-size: 1.25rem;
+  color: #fefefe;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.cta-btn {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 15px 35px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: inline-block;
+}
+
+.cta-btn:hover {
+  background-color: #6d4621;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(139, 90, 43, 0.3);
+}
+
+/* --- VİZYON VE MİSYON (GRID) --- */
+.statement-section {
+  padding: 100px 0;
+  background-color: var(--white);
+}
+
+.grid-statements {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Bilgisayarda 2 yan yana */
+  gap: 50px;
+  align-items: start;
+}
+
+.statement-card {
+  background-color: var(--bg-light);
+  padding: 50px;
+  border-radius: 15px;
+  border: 1px solid rgba(224, 216, 195, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.statement-card .icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: var(--accent-color);
+}
+
+.statement-card h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.statement-card .line {
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent-color);
+  margin-bottom: 25px;
+  border-radius: 2px;
+}
+
+.statement-card p {
+  color: var(--text-light);
+  font-size: 1.05rem;
+}
+
+/* --- İLETİŞİM BÖLÜMÜ (YAN YANA) --- */
+.contact-section {
+  padding: 100px 0;
+  background-color: var(--white);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Ekranı iki eşit parçaya böler */
+  gap: 50px;
+  background-color: var(--bg-light);
+  padding: 50px;
+  border-radius: 15px;
+  border: 1px solid rgba(224, 216, 195, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.contact-info h3 {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+}
+
+.contact-info p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: var(--text-light);
+}
+
+.contact-info a {
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.contact-info a:hover {
+  color: var(--accent-color);
+}
+
+/* Form Stilleri */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+
+.input-group input,
+.input-group textarea {
+  padding: 15px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  background-color: var(--white);
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(139, 90, 43, 0.2);
+}
+
+.submit-btn {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background-color: #6d4621;
+  transform: translateY(-2px);
+}
+
+/* En Alt Bilgi (Footer) */
+.bottom-footer {
+  background-color: #4a3b32;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 25px 0;
+}
+/* --- FOOTER & İLETİŞİM --- */
+.main-footer {
+  background-color: #4a3b32;
+  color: #e0d8c3;
+  padding: 80px 0 30px;
+}
+
+.footer-contact p {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.footer-contact a {
+  color: #fefdfa;
+  font-weight: 600;
+}
+
+.footer-contact a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.copyright {
+  margin-top: 60px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+}
+/* --- ÜRÜNLER BÖLÜMÜ --- */
+.products-section {
+  padding: 100px 0;
+  background-color: var(--bg-light);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 50px;
+}
+
+/* Ürünleri Otomatik Sıralayan Izgara (Grid) Sistemi */
+.products-grid {
+  display: grid;
+  /* Bu satır sihirli kısımdır. Ekran yettiği kadar yan yana koyar (min 280px genişliğinde) */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Ürün Kartı Tasarımı */
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(139, 90, 43, 0.15);
+}
+
+/* Görsel Alanı Sabitleyici (Görsellerin boyutu farklı olsa da tasarımı bozmaz) */
+
+/* --- ÜRÜN KARTLARI İÇİNDEKİ ÖZEL 3D KUTULAR --- */
+.product-3d-wrapper {
+  width: 100%;
+  height: 250px;
+  background-color: #fcfbf9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 800px; /* Derinlik hissi */
+  overflow: hidden;
+  border-bottom: 3px solid var(--accent-color);
+}
+
+/* Ürün kartının üzerine gelince kutu kendi etrafında döner! */
+.product-card:hover .prod-box {
+  transform: rotateX(-10deg) rotateY(160deg);
+}
+
+/* Kutu Yüzeylerinin Temel Ayarları */
+.p-face {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: var(--accent-color);
+  border: 2px solid var(--primary-color);
+  /* Hafif iç gölge ile karton dokusu hissi */
+  box-shadow: inset 0 0 10px rgba(139, 90, 43, 0.2);
+}
+
+/* SİHİRLİ MATEMATİK: Yüzeyleri HTML'de girilen w, h, d değerlerine göre otomatik çizer */
+.p-front {
+  width: var(--w);
+  height: var(--h);
+  margin-left: calc(var(--w) / -2);
+  margin-top: calc(var(--h) / -2);
+  transform: translateZ(calc(var(--d) / 2));
+}
+.p-back {
+  width: var(--w);
+  height: var(--h);
+  margin-left: calc(var(--w) / -2);
+  margin-top: calc(var(--h) / -2);
+  transform: rotateY(180deg) translateZ(calc(var(--d) / 2));
+}
+.p-right {
+  width: var(--d);
+  height: var(--h);
+  margin-left: calc(var(--d) / -2);
+  margin-top: calc(var(--h) / -2);
+  transform: rotateY(90deg) translateZ(calc(var(--w) / 2));
+}
+.p-left {
+  width: var(--d);
+  height: var(--h);
+  margin-left: calc(var(--d) / -2);
+  margin-top: calc(var(--h) / -2);
+  transform: rotateY(-90deg) translateZ(calc(var(--w) / 2));
+}
+.p-bottom {
+  width: var(--w);
+  height: var(--d);
+  margin-left: calc(var(--w) / -2);
+  margin-top: calc(var(--d) / -2);
+  transform: rotateX(-90deg) translateZ(calc(var(--h) / 2));
+  background-color: var(--primary-color); /* Tabanı biraz koyu yapalım */
+}
+
+/* Kutunun Kapağı (Lid) */
+.p-top {
+  width: var(--w);
+  height: var(--d);
+  margin-left: calc(var(--w) / -2);
+  margin-top: calc(var(--d) / -2);
+  transform: rotateX(90deg) translateZ(calc(var(--h) / 2));
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+}
+
+/* Ürün kartının üzerine gelince kapak havaya kalkar ve açılır! */
+.product-card:hover .p-top {
+  transform: rotateX(90deg) translateZ(calc(var(--h) / 2 + 40px)) rotateY(20deg);
+  opacity: 0; /* Kapak açılarak kaybolur, içinin boş olduğu görünür */
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.05); /* Fareyle üzerine gelince resim hafifçe büyür */
+}
+
+.product-info {
+  padding: 20px;
+  text-align: center;
+  border-top: 3px solid var(--accent-color);
+}
+
+.product-info h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--text-dark);
+}
+/* --- MOBİL UYUMLULUK (RESPONSIVE) --- */
+
+/* Tablet ve Küçük Bilgisayarlar (1024px altı) */
+@media (max-width: 1024px) {
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+  .grid-statements {
+    gap: 30px;
+  }
+  .statement-card {
+    padding: 40px;
+  }
+}
+
+/* Mobil Telefonlar (768px altı) */
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  } /* Yazıları hafif küçült */
+
+  .flex-header {
+    flex-direction: column; /* Logo ve menü alt alta */
+    text-align: center;
+  }
+
+  .main-nav {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Menü sığmazsa alt satıra geçsin */
+    gap: 15px;
+  }
+
+  .main-nav a {
+    margin: 0; /* Boşlukları temizle */
+    font-size: 1.1rem;
+  }
+
+  .hero-section {
+    padding: 80px 0;
+  }
+  .hero-section h1 {
+    font-size: 2.1rem;
+  }
+
+  .grid-statements {
+    grid-template-columns: 1fr; /* Mobilde 1 kolon (alt alta) */
+  }
+}
+
+/* --- ÖNEMLİ: KOLİNİN GÖRÜNMESİ İÇİN BÖLÜM ARKA PLANLARINI ŞEFFAFLAŞTIRMA --- */
+/* style.css içindeki eski '.vision-mission', '.products-section', '.contact-section' arka planlarını bul ve rgba ile değiştir */
+
+.statement-section,
+.products-section,
+.contact-section {
+  background-color: rgba(255, 255, 255, 0.9) !important; /* %90 şeffaf beyaz */
+  position: relative;
+  z-index: 1; /* İçeriklerin kolinin önünde kalmasını garanti eder */
+}
+
+.statement-card,
+.product-card,
+.contact-grid {
+  background-color: rgba(
+    254,
+    253,
+    250,
+    0.95
+  ) !important; /* Kartları da hafif şeffaf yapabiliriz */
+}
+
+/* Footer (En alt bilgi) şeffaf olmasın, katı dursun */
+.main-footer,
+.bottom-footer {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- YENİ ÜRÜNLER BÖLÜMÜ (YATAY LİSTE) --- */
+.products-section {
+  padding: 80px 0;
+  background-color: var(--white);
+  position: relative;
+  z-index: 1;
+}
+
+.products-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Her Bir Ürün Satırı (Solda Yazı, Sağda Animasyon) */
+.prod-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg-light);
+  border: 1px solid rgba(224, 216, 195, 0.6);
+  border-radius: 12px;
+  padding: 30px 40px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s;
+}
+
+.prod-row:hover {
+  transform: translateX(10px); /* Üzerine gelince satır hafif sağa kayar */
+  border-color: var(--accent-color);
+}
+
+.prod-text {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.prod-text h3 {
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.prod-text p {
+  color: var(--text-light);
+  font-size: 1.05rem;
+}
+
+/* Animasyonların Durduğu Çerçeve */
+.prod-anim {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white);
+  border-radius: 50%; /* Yuvarlak şık bir köşe */
+  border: 3px dashed var(--accent-color);
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* --- ÜRÜNLER BÖLÜMÜ (DİKDÖRTGEN GRID) --- */
+.products-section {
+  padding: 100px 0;
+  background-color: var(--white);
+  position: relative;
+  z-index: 1;
+}
+
+.products-grid {
+  display: grid;
+  /* Mobilde 1, tablette 2, PC'de 3 veya 4 kolonlu otomatik grid */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Ürün Kartı Tasarımı */
+.product-card {
+  background-color: var(--bg-light);
+  border: 1px solid rgba(224, 216, 195, 0.5);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-10px); /* Hafifçe yukarı kalkar */
+  border-color: var(--accent-color);
+  box-shadow: 0 15px 30px rgba(139, 90, 43, 0.1);
+}
+
+/* Görsel Alanı Sabitleyici (En Kritik Kısım) */
+.product-image-wrapper {
+  width: 100%;
+  height: 220px; /* Dikdörtgen kart yüksekliği */
+  background-color: #f7f3e8; /* Resim yoksa duracak hafif bej renk */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+/* Gerçek Resim Eklendiğinde Devreye Girer */
+.product-img {
+  width: 100%; /* Kutunun genişliğini tam kapla */
+  height: 100%; /* Kutunun yüksekliğini tam kapla */
+  object-fit: cover; /* Resmi ezmeden, kutuyu tam dolduracak şekilde yerleştir */
+  transition: transform 0.5s ease;
+  z-index: 2;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.08); /* Fareyle üzerine gelince resim hafifçe büyür */
+}
+
+/* Görsel Yoksa Duracak Yer Tutucu Yazı */
+.img-placeholder {
+  position: absolute;
+  font-size: 1rem;
+  color: var(--text-light);
+  font-weight: 600;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+/* Resim yüklendiğinde yer tutucuyu gizle (JavaScript gerekmeden CSS ile basit çözüm) */
+.product-img[src=""],
+.product-img:not([src]) {
+  display: none;
+}
+.product-img[src] + .img-placeholder {
+  display: none;
+}
+
+.product-info {
+  padding: 25px;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-info h3 {
+  font-size: 1.4rem;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+.product-info p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin: 0;
+}
+/* --- KART BAŞLIĞI VE MİNİ ANİMASYON SATIRI --- */
+.card-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  gap: 10px;
+  border-bottom: 1px dashed rgba(224, 216, 195, 0.8);
+  padding-bottom: 10px;
+}
+
+.card-title-row h3 {
+  font-size: 1.35rem !important;
+  color: var(--primary-color);
+  margin: 0 !important;
+  text-align: left;
+  line-height: 1.2;
+}
+
+.product-info p {
+  text-align: left; /* Metni de sola yaslamak profesyonel durur */
+}
+
+/* --- GERÇEKÇİ MİNİ 3D ANİMASYONLAR --- */
+
+/* 1. Fotogerçekçi 3D A-Box Koli */
+.mini-anim-abox {
+  width: 20px;
+  height: 20px;
+  background: #a67c52;
+  position: relative;
+  transform: rotateX(60deg) rotateZ(-45deg); /* Gerçekçi 3D izometrik açı */
+  transform-style: preserve-3d;
+  box-shadow: -6px 6px 12px rgba(0, 0, 0, 0.4); /* Yere vuran gölge */
+  flex-shrink: 0;
+  margin-left: 5px;
+}
+/* Kutunun sağ ve sol 3D duvarları */
+.mini-anim-abox::before,
+.mini-anim-abox::after {
+  content: "";
+  position: absolute;
+  background: #8b5a2b; /* Gölgede kalan koyu taraf */
+}
+.mini-anim-abox::before {
+  /* Sol duvar */
+  width: 100%;
+  height: 14px;
+  left: 0;
+  top: 100%;
+  transform-origin: top;
+  transform: rotateX(-90deg);
+}
+.mini-anim-abox::after {
+  /* Sağ duvar */
+  width: 14px;
+  height: 100%;
+  left: 100%;
+  top: 0;
+  transform-origin: left;
+  transform: rotateY(90deg);
+  background: #c29165; /* Işık alan aydınlık taraf */
+}
+.abox-flap {
+  position: absolute;
+  background: #c29165;
+  border: 1px solid rgba(0, 0, 0, 0.15); /* Gerçekçi karton kalınlığı */
+  width: 100%;
+  height: 50%;
+  transition: transform 0.3s;
+}
+.flap-left {
+  left: 0;
+  top: 0;
+  transform-origin: top;
+  animation: realFlapL 2s infinite alternate ease-in-out;
+}
+.flap-right {
+  left: 0;
+  bottom: 0;
+  transform-origin: bottom;
+  animation: realFlapR 2s infinite alternate ease-in-out;
+}
+@keyframes realFlapL {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(115deg);
+  }
+}
+@keyframes realFlapR {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(-115deg);
+  }
+}
+
+/* 2. Fotogerçekçi Kalıplı Kesim Kutu */
+.mini-anim-diecut {
+  width: 36px;
+  height: 10px;
+  background: linear-gradient(to bottom, #d4a373, #8b5a2b);
+  border-radius: 2px;
+  position: relative;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+  animation: breathBox 3s infinite ease-in-out;
+}
+.mini-anim-diecut::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 36px;
+  height: 10px;
+  background: linear-gradient(to bottom, #e3b990, #c29165);
+  border-radius: 2px 2px 0 0;
+  transform-origin: bottom;
+  box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.4); /* Kapak kenarındaki ışık yansıması */
+  animation: realLidClose 3s infinite ease-in-out;
+}
+@keyframes breathBox {
+  0%,
+  100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.95);
+  }
+}
+@keyframes realLidClose {
+  0%,
+  100% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(85deg);
+    opacity: 0;
+  }
+}
+
+/* 3. Fotogerçekçi Ofset Baskı (Işık yansımalı) */
+.mini-anim-offset {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #f9f9f9, #dcdcdc);
+  border-radius: 4px;
+  box-shadow:
+    inset 2px 2px 5px #fff,
+    2px 3px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 4px;
+  gap: 4px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  animation: floatAnim 2s infinite alternate;
+}
+.mini-anim-offset::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    transparent 60%
+  ); /* Vernik / Parlama efekti */
+  pointer-events: none;
+}
+.cmyk {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 1;
+}
+.cmyk.c {
+  background: radial-gradient(circle at 3px 3px, #5ce6ff, #00aeef);
+}
+.cmyk.m {
+  background: radial-gradient(circle at 3px 3px, #ff5cc6, #ec008c);
+}
+.cmyk.y {
+  background: radial-gradient(circle at 3px 3px, #ffff66, #fff200);
+}
+.cmyk.k {
+  background: radial-gradient(circle at 3px 3px, #555, #000);
+}
+@keyframes floatAnim {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+/* 4. Fotogerçekçi Koli Bandı */
+.mini-anim-tape {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  /* Ortası delik karton masura ve gerçekçi bant sarım dokusu */
+  background: radial-gradient(
+    circle,
+    transparent 25%,
+    #d1bfae 26%,
+    #d1bfae 32%,
+    #c98c47 33%,
+    #a66a26 85%,
+    #e3ac71 100%
+  );
+  box-shadow:
+    2px 4px 6px rgba(0, 0, 0, 0.4),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.6);
+  position: relative;
+  flex-shrink: 0;
+  animation: spinTape 3s linear infinite;
+}
+.tape-line {
+  position: absolute;
+  top: -3px;
+  left: 16px;
+  width: 3px;
+  height: 12px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.2)
+  );
+  box-shadow: 3px 0 3px rgba(0, 0, 0, 0.3); /* Açılan bandın gölgesi */
+}
+@keyframes spinTape {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 5. Fotogerçekçi Stretch Film */
+.mini-anim-stretch {
+  width: 22px;
+  height: 38px;
+  /* Parlak naylon yansımaları */
+  background: linear-gradient(
+    to right,
+    rgba(200, 220, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.95) 25%,
+    rgba(200, 220, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.8) 80%,
+    rgba(200, 220, 255, 0.3) 100%
+  );
+  border-radius: 3px;
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
+  position: relative;
+  flex-shrink: 0;
+}
+.stretch-core {
+  position: absolute;
+  width: 14px;
+  height: 6px;
+  /* Karton masura dokusu */
+  background: linear-gradient(to right, #4a331c, #b39575, #4a331c);
+  left: 4px;
+  z-index: -1;
+}
+.stretch-core.top {
+  top: -4px;
+  border-radius: 2px 2px 0 0;
+}
+.stretch-core.bottom {
+  bottom: -4px;
+  border-radius: 0 0 2px 2px;
+}
+.stretch-shine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 100%;
+  background: linear-gradient(to right, transparent, #fff, transparent);
+  opacity: 0.9;
+  animation: shineMove 2s infinite linear;
+}
+@keyframes shineMove {
+  0% {
+    transform: translateX(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateX(14px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0.4;
+  }
+}
+/* --- KUSURSUZ VE NET MİNİ ANİMASYONLAR --- */
+
+/* 1. A-Box Koli (Kapaklar sıfır hata ile dışa açılır) */
+.mini-abox {
+  width: 32px;
+  height: 22px;
+  background: #d4a373;
+  border: 2px solid #8b5a2b;
+  position: relative;
+  margin-left: auto;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.mini-abox::before,
+.mini-abox::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  width: 16px;
+  height: 4px;
+  background: #8b5a2b;
+}
+.mini-abox::before {
+  left: -2px;
+  transform-origin: left bottom;
+  border-radius: 2px 0 0 0;
+  animation: flapL 2s infinite ease-in-out;
+}
+.mini-abox::after {
+  right: -2px;
+  transform-origin: right bottom;
+  border-radius: 0 2px 0 0;
+  animation: flapR 2s infinite ease-in-out;
+}
+@keyframes flapL {
+  0%,
+  20% {
+    transform: rotate(0deg);
+  }
+  80%,
+  100% {
+    transform: rotate(-120deg);
+  }
+}
+@keyframes flapR {
+  0%,
+  20% {
+    transform: rotate(0deg);
+  }
+  80%,
+  100% {
+    transform: rotate(120deg);
+  }
+}
+
+/* 2. YENİ KALIPLI KUTU (Pizza/Kargo kutusu tarzı, net kapak hareketi) */
+.mini-diecut {
+  width: 36px;
+  height: 10px;
+  background-color: #d4a373;
+  border: 2px solid #8b5a2b;
+  position: relative;
+  margin-left: auto;
+  border-radius: 2px;
+  flex-shrink: 0;
+  margin-top: 15px; /* Kapağa yer açmak için */
+}
+.mini-diecut .lid {
+  position: absolute;
+  bottom: 100%;
+  left: -2px;
+  width: 36px;
+  height: 24px; /* Kapak daha büyük ve belirgin */
+  background-color: #e3b990;
+  border: 2px solid #8b5a2b;
+  border-bottom: none;
+  transform-origin: bottom;
+  animation: clearLid 2.5s infinite ease-in-out;
+}
+@keyframes clearLid {
+  0%,
+  15% {
+    transform: rotateX(0deg);
+  }
+  50%,
+  85% {
+    transform: rotateX(80deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+/* 3. YENİ OFSET BASKI (Baskı silindirinden geçen renkli kağıt) */
+.mini-offset {
+  width: 40px;
+  height: 24px;
+  background: #fff;
+  border: 2px solid #8b5a2b;
+  position: relative;
+  margin-left: auto;
+  overflow: hidden;
+  border-radius: 3px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+.mini-offset .image {
+  width: 10px;
+  height: 100%;
+  /* CMYK Renk şeridi */
+  background: linear-gradient(
+    to bottom,
+    #00aeef 25%,
+    #ec008c 25%,
+    #ec008c 50%,
+    #fff200 50%,
+    #fff200 75%,
+    #000000 75%
+  );
+  position: absolute;
+  left: -10px;
+  animation: printPaper 2.5s infinite linear;
+}
+.mini-offset .print-head {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: #555;
+  transform: translateX(-50%);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+@keyframes printPaper {
+  0% {
+    left: -10px;
+    width: 0;
+  }
+  50%,
+  100% {
+    left: 0;
+    width: 100%;
+  } /* Renkler makineden geçerek kutuyu boyar */
+}
+
+/* 5. YENİ STRETCH FİLM (Rulodan çekilip uzayan şeffaf film) */
+.mini-stretch-wrapper {
+  position: relative;
+  width: 34px;
+  height: 36px;
+  margin-left: auto;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+.stretch-core {
+  position: absolute;
+  width: 10px;
+  height: 36px;
+  background: #8b5a2b;
+  border-radius: 2px;
+  left: 0;
+  z-index: 1;
+}
+.stretch-film {
+  position: absolute;
+  width: 16px;
+  height: 28px;
+  /* Parlak naylon efekti */
+  background: linear-gradient(
+    to right,
+    rgba(200, 220, 255, 0.4),
+    rgba(255, 255, 255, 0.8),
+    rgba(200, 220, 255, 0.4)
+  );
+  border: 1px solid #8ab4f8;
+  border-radius: 3px;
+  left: -3px;
+  z-index: 2;
+}
+.stretch-film .shine {
+  position: absolute;
+  top: 4px;
+  left: 16px;
+  width: 0px;
+  height: 20px;
+  background: rgba(200, 220, 255, 0.4);
+  border-top: 1px solid #8ab4f8;
+  border-bottom: 1px solid #8ab4f8;
+  animation: pullStretch 2.5s infinite ease-out;
+}
+@keyframes pullStretch {
+  0%,
+  20% {
+    width: 0px;
+    opacity: 1;
+  }
+  80% {
+    width: 18px;
+    opacity: 1;
+  } /* Film rulodan sağa doğru uzar */
+  100% {
+    width: 18px;
+    opacity: 0;
+  }
+}
+
+/* 4. Koli Bandı (Rulo dönerken bant sorunsuz uzar) */
+.mini-tape-wrapper {
+  position: relative;
+  width: 44px;
+  height: 26px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.tape-roll {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 6px solid #c59664;
+  box-shadow: inset 0 0 0 3px #fff;
+  animation: spinTape 2s infinite linear;
+  z-index: 2;
+}
+.tape-strip {
+  position: absolute;
+  left: 13px;
+  bottom: 0;
+  height: 6px;
+  width: 0;
+  background: #c59664;
+  transform-origin: left;
+  animation: pullTapeStrip 2s infinite;
+}
+@keyframes pullTapeStrip {
+  0%,
+  20% {
+    width: 0;
+    opacity: 1;
+  }
+  80% {
+    width: 30px;
+    opacity: 1;
+  }
+  100% {
+    width: 30px;
+    opacity: 0;
+  }
+}
+@keyframes spinTape {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Arka Plan Kapsayıcısı */
+.slider-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Tekil Slaytların Ortak Ayarı */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover; /* Resmi ekrana tam yay */
+  background-position: center; /* Resmi ortala */
+  opacity: 0; /* Başlangıçta görünmez yap */
+  /* 15 saniyelik toplam döngü (3 resim x 5 saniye) */
+  animation: fadeSlide 9s infinite;
+}
+
+/* --- KENDİ RESİMLERİNİ BURAYA EKLEYECEKSİN --- */
+.slide-1 {
+  /* 1. Görsel (Örn: Fabrika dış çekim) */
+  background-image: url("img/karton2.jpg");
+  animation-delay: 0s; /* İlk bu başlar */
+}
+.slide-2 {
+  /* 2. Görsel (Örn: Üretim bandı / Makine) */
+  background-image: url("img/olukluadam.png");
+  animation-delay: 3s; /* 5 saniye sonra bu başlar */
+}
+.slide-3 {
+  /* 3. Görsel (Örn: Depo veya Koli yığınları) */
+  background-image: url("img/orig.jpg");
+  animation-delay: 6s; /* 10 saniye sonra bu başlar */
+}
+
+/* Yavaşça Belirme ve Hafif Yakınlaşma Animasyonu (Ken Burns Efekti) */
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  10% {
+    opacity: 1;
+  }
+  33% {
+    opacity: 1;
+    transform: scale(1.05);
+  } /* Hafifçe yakınlaşır */
+  43% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+/* Yazıların Okunması İçin Siyah Yarı Şeffaf Katman */
+/* --- HERO SLIDER ARKA PLAN GÖRSEL GÖRÜNÜMÜ --- */
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  /* Grileştirme ve Karartma Kombinasyonu */
+  /* Resimlerin üzerine siyah ve gri tonlu bir perde çeker */
+  background: linear-gradient(
+    to bottom,
+    rgba(247, 188, 143, 0.347) 0%,
+    /* Üstte daha açık gri/siyah */ rgba(0, 0, 0, 0.8) 100%
+      /* Altta daha koyu siyah */
+  );
+
+  .slide {
+    filter: grayscale(80%); /* %80 oranında grileştirir */
+    /* ... diğer slide özellikleri ... */
+  }
+}
+
+/* İçerik (Yazılar) En Üstte ve Beyaz Dursun */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center; /* Yazıları dikeyde ortalar */
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+/* --- HERO İÇERİK: BLUR VE ARKA PLAN KALDIRILDI --- */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 20px;
+  background: none !important; /* Arka planı tamamen sildik */
+  backdrop-filter: none !important; /* Blur efektini sildik */
+  border: none !important; /* Çerçeveleri sildik */
+  box-shadow: none !important; /* Kutu gölgesini sildik */
+}
+
+/* --- BAŞLIK: GÖLGE İLE ÖNE ÇIKARMA --- */
+.hero-title {
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  /* Yazının arkasına siyah, yumuşak bir derinlik ekliyoruz */
+  text-shadow:
+    2px 4px 10px rgba(0, 0, 0, 0.8),
+    0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* --- ALT YAZI --- */
+.hero-subtitle {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #ffffff;
+  max-width: 750px;
+  margin: 0 auto 40px auto;
+  /* Alt yazıyı da okunur kılmak için hafif gölge */
+  text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+/* --- BUTON --- */
+.btn-primary {
+  background-color: #d4a373; /* Marka rengin */
+  padding: 15px 40px;
+  border-radius: 5px; /* Daha köşeli, kurumsal bir yapı */
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #bc8a5f;
+  transform: translateY(-3px);
+}
+
+.btn-quote-pulse {
+  display: inline-block;
+  background-color: #e63946; /* Çok dikkat çekici tatlı bir kırmızı/kiremit rengi */
+  color: #ffffff !important;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 12px 24px;
+  border-radius: 50px; /* Tam oval, hap şeklinde şık buton */
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+  margin-left: 20px; /* Menüden biraz ayrı dursun */
+
+  /* Nabız animasyonunu başlat (Sonsuz döngü) */
+  animation: pulseGlow 2s infinite;
+  transition: all 0.3s ease;
+}
+
+/* Fareyle üzerine gelinceki tepkisi */
+.btn-quote-pulse:hover {
+  background-color: #d62828;
+  transform: translateY(-2px) scale(1.05);
+  animation: none; /* Üzerine gelince animasyon dursun ki tıklaması kolay olsun */
+  box-shadow: 0 6px 20px rgba(230, 57, 70, 0.6);
+}
+
+/* Nabız (Pulse) Animasyonu Detayları */
+@keyframes pulseGlow {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    /* Dışa doğru yayılan şeffaf dalga efekti */
+    box-shadow: 0 0 0 15px rgba(230, 57, 70, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(230, 57, 70, 0);
+  }
+}
+.wa-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  cursor: pointer;
+}
+
+/* Mesaj Balonu */
+.wa-message-bubble {
+  background: white;
+  padding: 10px 15px;
+  border-radius: 15px 15px 0 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.5s ease;
+  pointer-events: none;
+}
+
+/* Aktif olduğunda balon görünür */
+.wa-message-bubble.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* WhatsApp İkonu */
+.wa-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.wa-icon {
+  width: 35px;
+  height: 35px;
+}
+
+/* Zıplama Animasyonu */
+.jump-animation {
+  animation: waJump 0.8s ease;
+}
+
+@keyframes waJump {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.phone-link {
+  color: #d4a373; /* Marka rengin */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.phone-link:hover {
+  color: #8b5a2b; /* Üzerine gelince biraz koyulaşsın */
+  text-decoration: underline;
+}
+
+/* Sadece mobilde çalışan özel bir efekt ekleyelim */
+@media (max-width: 768px) {
+  .phone-link {
+    background-color: #f8f9fa;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    display: inline-block;
+    margin-top: 5px;
+  }
+}
+/* İletişim satırlarını yan yana düzgünce dizer */
+.contact-info {
+  position: relative;
+  overflow: hidden;
+  padding: 30px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Arka planda çok soluk duran dev ikon */
+.contact-info::after {
+  content: "\f1ad"; /* Bina/Fabrika ikonu kodu (FontAwesome) */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  font-size: 150px;
+  color: rgba(212, 163, 115, 0.05); /* Sadece %5 görünürlük */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Her bir satırı hizalayan ana kapsayıcı */
+.contact-item {
+  display: flex;
+  align-items: flex-start; /* İkonu yukarıda tutar, yazı uzarsa aşağı akar */
+  margin-bottom: 20px;
+  gap: 15px; /* İkon ile yazı arasındaki boşluk */
+}
+
+/* İkonların olduğu kutu (Hizalamayı sağlayan asıl yer) */
+.icon-box {
+  min-width: 30px; /* Tüm ikon kutuları aynı genişlikte */
+  color: #d4a373; /* Marka rengin */
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* Yazıların olduğu kısım */
+.contact-detail {
+  display: flex;
+  flex-direction: column; /* Başlık üstte, link altta */
+}
+
+.contact-detail strong {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 2px;
+}
+
+.contact-detail a,
+.contact-detail span {
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1.4;
+  transition: 0.3s;
+}
+
+.contact-detail a:hover {
+  color: #d4a373;
+}
+
+/* İkonların rengini ve boyutunu ayarlar */
+.contact-item i {
+  color: #d4a373; /* Marka rengin (Kraft/Altın tonu) */
+  font-size: 1.2rem;
+  width: 25px; /* Tüm ikonların aynı hizada başlamasını sağlar */
+  text-align: center;
+}
+
+/* Telefon ve Adres linklerinin stili */
+.phone-link,
+.address-link {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  line-height: 1.4;
+}
+
+/* Üzerine gelince (Hover) yapılacak efekt */
+.phone-link:hover,
+.address-link:hover {
+  color: #d4a373;
+  transform: translateX(5px); /* Hafifçe sağa kayar */
+}
+/* --- MOBİL DÜZENLEMELER (992px ve altı) --- */
+@media (max-width: 992px) {
+  /* İletişim ve Formu yan yana değil, alt alta getirir */
+  .contact-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 0 15px;
+  }
+
+  /* İletişim bilgilerinin genişliğini ayarlar */
+  .contact-info {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  /* Formun genişliğini ayarlar */
+  .contact-form-container {
+    width: 100%;
+    padding: 25px; /* Mobilde iç boşluğu biraz azalttık */
+  }
+
+  /* Başlık boyutlarını mobilde küçültelim ki taşmasın */
+  .hero-title {
+    font-size: 2.5rem !important;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem !important;
+  }
+}
+
+/* --- ÇOK KÜÇÜK EKRANLAR (480px ve altı) --- */
+@media (max-width: 480px) {
+  .contact-item {
+    flex-direction: row; /* İkon ve yazı yan yana kalsın */
+    align-items: flex-start;
+  }
+
+  .icon-box {
+    min-width: 25px;
+    font-size: 1rem;
+  }
+
+  .contact-detail a,
+  .contact-detail span {
+    font-size: 0.9rem; /* Yazıları biraz küçülttük */
+  }
+
+  .submit-btn {
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+/* --- LOGO VE YAN YANA METİN STİLLERİ (Montserrat) --- */
+
+/* Logo ve Metin Bloğunu Yan Yana Getir */
+.logo-link {
+  display: flex;
+  align-items: center; /* Logo ve metni dikeyde ortalar */
+  text-decoration: none;
+  gap: 15px; /* Logo ile yazı arasındaki boşluk */
+}
+
+/* Metinlerin yan yana gelmesini sağlayan kapsayıcı (flex-direction: row yapıldı) */
+.logo-text-block {
+  display: flex;
+  flex-direction: row; /* Yan yana dizer */
+  align-items: center; /* Metinleri dikeyde aynı hizada tutar */
+  gap: 8px; /* "BESEN" ve "OLUKLU" arasındaki boşluk */
+}
+
+/* --- ORTAK HARF STİLLERİ --- */
+.text-besen,
+.text-oluklu {
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 700 !important; /* Bold */
+  text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1; /* Satır yüksekliğini normalleştirir */
+
+  /* HARF ARASINI AÇAN KRİTİK KOMUT */
+  letter-spacing: 2px; /* Bu değeri arttırıp azaltabilirsin */
+}
+
+/* Üstteki Siyah "BESEN" Yazısı */
+.text-besen {
+  font-size: 1.6rem; /* Yazı boyutu (gerekirse ayarla) */
+  color: #111; /* Siyah */
+}
+
+/* Alttaki Kahverengi "OLUKLU" Yazısı */
+.text-oluklu {
+  font-size: 1.1rem; /* "BESEN"den daha küçük yapalım */
+  color: #a67c52; /* Logonun kahverengi tonuna uygun bir kahve */
+  margin-top: 0; /* Artık üst üste değil, boşluğu sıfırladık */
+}
+
+/* --- MOBİL UYUMLULUK --- */
+/* --- MOBİL LOGO EZİLME DÜZELTMESİ (Kesin Çözüm) --- */
+@media (max-width: 768px) {
+  .main-logo {
+    height: 40px !important; /* Mobilde istediğimiz yükseklik */
+
+    /* BU KRİTİK SATIRI EKLE */
+    width: auto !important; /* Genişliği yüksekliğe göre otomatik ayarla */
+
+    /* İsteğe bağlı: logonun kutu içinde kalmasını sağlar */
+    object-fit: contain !important;
+  }
+
+  /* Yan yana duran metinlerin hizalamasını da kontrol edelim */
+  .logo-link {
+    display: flex !important;
+    align-items: center !important; /* Dikeyde jilet gibi ortalar */
+  }
+}
+
+.text-besen {
+  font-size: 1.2rem; /* Mobilde yazıyı küçült */
+  letter-spacing: 1.5px; /* Mobilde harf aralığını hafifçe daralt */
+}
+
+.text-oluklu {
+  font-size: 0.9rem; /* Mobilde "OLUKLU" yazısını küçült */
+  letter-spacing: 1.5px;
+}
+
+.logo-text-block {
+  gap: 5px; /* Mobilde kelimeler arası boşluğu azalt */
+}
