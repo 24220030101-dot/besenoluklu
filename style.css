@@ -54,7 +54,18 @@ a {
   text-decoration: none;
   transition: 0.3s;
 }
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: transform 0.3s ease-in-out; /* Yumuşak kayma efekti */
+  z-index: 1000; /* Diğer her şeyin üstünde dursun */
+}
 
+/* Bu sınıfı JavaScript ile ekleyip çıkaracağız */
+.header-hidden {
+  transform: translateY(-100%); /* Menüyü yukarı doğru saklar */
+}
 /* --- HEADER & LOGO --- */
 .main-header {
   background-color: #fefefe;
